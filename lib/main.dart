@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learn_getx/views/home_view.dart';
 import 'package:learn_getx/views/next_view.dart';
+import 'package:learn_getx/views/sample_view.dart';
 
 void main() => runApp(const MyApp());
 
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.rightToLeftWithFade,
       getPages: [
         GetPage(name: "/", page: () => HomeView()),
-        GetPage(name: "/next", page: () => NextView())
+        GetPage(name: "/next", page: () => NextView()),
+        GetPage(name: "/sample", page: () => SampleView())
       ],
     );
   }
@@ -76,7 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Obx(() => Text(
               '$counter',
               style: Theme.of(context).textTheme.headlineMedium,
-            ),)
+            ),),
+            TextButton(onPressed: () => Get.toNamed("/sample"), child: Text("to Sample"))
           ],
         ),
       ),
